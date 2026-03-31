@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OFFICE STARTUP – 税理士向け提案資料</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #2563EB;
+    --blue-light: #3B82F6;
+    --blue-dark: #1E40AF;
+    --navy: #1E293B;
+    --gray: #64748B;
+    --gray-light: #F1F5F9;
+    --gray-border: #E2E8F0;
+    --white: #FFFFFF;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: #CBD5E1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 16px;
+    gap: 32px;
+  }
+
+  /* ===== SLIDE WRAPPER ===== */
+  .slide {
+    width: 900px;
+    min-height: 560px;
+    background: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+    display: flex;
+    flex-direction: column;
+    padding: 40px 52px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ===== HEADER ===== */
+  .slide-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 36px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 900;
+    font-size: 15px;
+    color: var(--navy);
+    letter-spacing: 0.04em;
+  }
+
+  .logo-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--blue);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 900;
+    font-size: 16px;
+  }
+
+  .logo span { color: var(--blue); font-style: italic; }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .progress-bar-wrap {
+    width: 120px;
+    height: 4px;
+    background: var(--gray-border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: var(--blue);
+    border-radius: 2px;
+  }
+
+  .page-num {
+    font-size: 12px;
+    color: var(--gray);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+  }
+
+  /* ===== PAGE TITLE ===== */
+  .page-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .page-title::before {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 26px;
+    background: var(--blue);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  /* ===== FOOTER NAV ===== */
+  .slide-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 24px;
+  }
+
+  .nav-btn {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gray);
+    letter-spacing: 0.08em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .dots {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gray-border);
+  }
+
+  .dot.active {
+    background: var(--blue);
+    width: 24px;
+    border-radius: 4px;
+  }
+
+  /* ===== COVER PAGE ===== */
+  .cover-badge {
+    display: inline-block;
+    background: var(--gray-light);
+    border: 1px solid var(--gray-border);
+    border-radius: 20px;
+    padding: 6px 18px;
+    font-size: 13px;
+    color: var(--gray);
+    margin-bottom: 32px;
+    font-weight: 500;
+  }
+
+  .cover-title {
+    font-size: 38px;
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1.25;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .cover-title span { color: var(--blue); }
+
+  .cover-sub {
+    font-size: 15px;
+    color: var(--gray);
+    line-height: 1.9;
+    text-align: center;
+  }
+
+  .cover-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .divider {
+    width: 48px;
+    height: 3px;
+    background: var(--blue);
+    border-radius: 2px;
+    margin: 28px auto 0;
+  }
+
+  /* ===== TWO-COL LAYOUT ===== */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    flex: 1;
+  }
+
+  .two-col-wide {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 24px;
+    flex: 1;
+  }
+
+  /* ===== CARD ===== */
+  .card {
+    background: var(--gray-light);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .card-title svg { flex-shrink: 0; }
+
+  /* ===== QUOTE BLOCK ===== */
+  .quote-block {
+    border-left: 3px solid var(--blue);
+    background: #EFF6FF;
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    font-size: 13px;
+    color: var(--navy);
+    line-height: 1.8;
+    margin-top: 16px;
+  }
+
+  /* ===== FEATURE LIST ===== */
+  .feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .feature-item {
+    background: white;
+    border-radius: 8px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy);
+    border: 1px solid var(--gray-border);
+  }
+
+  .feature-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1.5px solid var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* ===== DARK PANEL ===== */
+  .dark-panel {
+    background: var(--navy);
+    border-radius: 12px;
+    padding: 24px;
+    color: white;
+  }
+
+  .dark-panel-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--blue-light);
+    margin-bottom: 12px;
+  }
+
+  .dark-panel p {
+    font-size: 13px;
+    line-height: 1.9;
+    color: #CBD5E1;
+  }
+
+  /* ===== THREE COLS ===== */
+  .three-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    flex: 1;
+  }
+
+  .num-card {
+    background: var(--gray-light);
+    border-radius: 12px;
+    padding: 24px 20px;
+  }
+
+  .num-badge {
+    width: 36px;
+    height: 36px;
+    background: var(--blue);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 900;
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  .num-card h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .num-card p {
+    font-size: 12px;
+    color: var(--gray);
+    line-height: 1.8;
+  }
+
+  /* ===== STAT ===== */
+  .stat-number {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--blue);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+
+  .info-box {
+    background: var(--gray-light);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 12px;
+    color: var(--gray);
+    line-height: 1.8;
+  }
+
+  .info-box .label {
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  /* ===== BAR CHART ===== */
+  .chart-wrap {
+    background: var(--gray-light);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .chart-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .bar-label {
+    font-size: 11px;
+    color: var(--gray);
+    width: 110px;
+    flex-shrink: 0;
+  }
+
+  .bar-track {
+    flex: 1;
+    height: 28px;
+    background: white;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    background: var(--blue);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+  }
+
+  .bar-fill.gray {
+    background: #94A3B8;
+  }
+
+  .chart-note {
+    font-size: 11px;
+    color: var(--gray);
+    margin-top: 12px;
+    line-height: 1.7;
+  }
+
+  /* ===== COMPARISON TABLE ===== */
+  .comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    flex: 1;
+  }
+
+  .comp-col {
+    border-radius: 12px;
+    padding: 20px;
+  }
+
+  .comp-col.self {
+    background: var(--gray-light);
+    border: 1.5px solid var(--gray-border);
+  }
+
+  .comp-col.pro {
+    background: white;
+    border: 2px solid var(--blue);
+    position: relative;
+  }
+
+  .comp-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--blue);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+
+  .comp-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--gray);
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+
+  .comp-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+
+  .comp-item {
+    font-size: 12px;
+    color: var(--navy);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--gray-border);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.6;
+  }
+
+  .comp-item:last-child { border-bottom: none; }
+
+  .comp-item .icon-x { color: #EF4444; font-weight: 700; flex-shrink: 0; }
+  .comp-item .icon-o { color: var(--blue); font-weight: 700; flex-shrink: 0; }
+
+  /* ===== PRICING ===== */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr 1fr;
+    gap: 16px;
+    flex: 1;
+  }
+
+  .price-card {
+    border-radius: 12px;
+    padding: 22px 18px;
+    border: 1.5px solid var(--gray-border);
+    background: white;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+  }
+
+  .price-card.featured {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: white;
+  }
+
+  .price-card.dark {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: white;
+  }
+
+  .price-plan-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+  }
+
+  .price-plan-name {
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .price-amount {
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .price-amount span {
+    font-size: 12px;
+    font-weight: 500;
+    opacity: 0.7;
+  }
+
+  .price-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .price-features li {
+    font-size: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    line-height: 1.5;
+  }
+
+  .price-features li::before {
+    content: '✓';
+    font-weight: 700;
+    color: var(--blue);
+    flex-shrink: 0;
+  }
+
+  .price-card.featured .price-features li::before,
+  .price-card.dark .price-features li::before {
+    color: #93C5FD;
+  }
+
+  .price-tag {
+    position: absolute;
+    top: -12px;
+    right: 16px;
+    background: white;
+    color: var(--blue);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1.5px solid var(--blue);
+  }
+
+  .price-note {
+    font-size: 11px;
+    margin-top: auto;
+    opacity: 0.65;
+  }
+
+  /* ===== ROADMAP ===== */
+  .roadmap {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    flex: 1;
+    align-items: start;
+  }
+
+  .roadmap-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    position: relative;
+  }
+
+  .roadmap-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 18px;
+    right: -8px;
+    width: 16px;
+    height: 2px;
+    background: var(--blue-light);
+  }
+
+  .step-num {
+    width: 36px;
+    height: 36px;
+    background: var(--blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 900;
+    font-size: 13px;
+  }
+
+  .step-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .step-desc {
+    font-size: 11px;
+    color: var(--gray);
+    line-height: 1.7;
+  }
+
+  .banner {
+    margin-top: 20px;
+    background: #EFF6FF;
+    border-radius: 10px;
+    padding: 14px 20px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--blue);
+  }
+
+  /* ===== ROI ===== */
+  .roi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    flex: 1;
+  }
+
+  .roi-left {
+    background: var(--gray-light);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 14px;
+  }
+
+  .roi-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .roi-left h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .roi-left p {
+    font-size: 12px;
+    color: var(--gray);
+    line-height: 1.8;
+  }
+
+  .roi-right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .roi-item {
+    background: var(--gray-light);
+    border-radius: 12px;
+    padding: 18px 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .roi-item-icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 1.5px solid var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+
+  .roi-item h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .roi-item p {
+    font-size: 12px;
+    color: var(--gray);
+    line-height: 1.7;
+  }
+
+  /* ===== FAQ ===== */
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    flex: 1;
+  }
+
+  .faq-item {
+    background: var(--gray-light);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+
+  .faq-q {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+    display: flex;
+    gap: 8px;
+  }
+
+  .faq-q-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1.5px solid var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--blue);
+    flex-shrink: 0;
+  }
+
+  .faq-a {
+    font-size: 12px;
+    color: var(--gray);
+    line-height: 1.8;
+    padding-left: 28px;
+  }
+
+  /* ===== CLOSING ===== */
+  .closing-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .closing-icon {
+    width: 64px;
+    height: 64px;
+    background: var(--gray-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .closing-title {
+    font-size: 30px;
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1.4;
+  }
+
+  .closing-title span { color: var(--blue); }
+
+  .closing-sub {
+    font-size: 14px;
+    color: var(--gray);
+    line-height: 2;
+  }
+
+  .cta-wrap {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .btn-primary {
+    background: var(--blue);
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-secondary {
+    background: white;
+    color: var(--navy);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: 8px;
+    border: 1.5px solid var(--gray-border);
+    cursor: pointer;
+  }
+
+  /* ===== GRAPHIC PAGE ===== */
+  .graphic-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    flex: 1;
+  }
+
+  .graphic-mini-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .mini-card {
+    background: white;
+    border: 1.5px solid var(--gray-border);
+    border-radius: 10px;
+    padding: 16px;
+  }
+
+  .mini-card h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--blue);
+    margin-bottom: 6px;
+  }
+
+  .mini-card p {
+    font-size: 11px;
+    color: var(--gray);
+    line-height: 1.7;
+  }
+
+  /* Evidence page left */
+  .evidence-left {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .evidence-body {
+    font-size: 13px;
+    color: var(--navy);
+    line-height: 1.9;
+  }
+
+  .source-box {
+    background: var(--gray-light);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+
+  .source-box .source-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gray);
+    margin-bottom: 8px;
+  }
+
+  .source-box ul {
+    list-style: disc;
+    padding-left: 16px;
+  }
+
+  .source-box li {
+    font-size: 11px;
+    color: var(--gray);
+    line-height: 1.8;
+  }
+
+  .blue-quote {
+    background: #EFF6FF;
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  .blue-quote .bq-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .blue-quote p {
+    font-size: 12px;
+    color: var(--gray);
+    line-height: 1.9;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== PAGE 01 COVER ===== -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="logo"><div class="logo-icon">D</div>OFFICE <span>STARTUP</span></div>
+    <div class="header-right">
+      <div class="progress-bar-wrap"><div class="progress-bar" style="width:8%"></div></div>
+      <div class="page-num">PAGE 01 / 13</div>
+    </div>
+  </div>
+  <div class="cover-body">
+    <div class="cover-badge">独立開業される税理士の先生へ</div>
+    <div class="cover-title">先生の「独立」という決断を、<br><span>伝わる形</span>にする。</div>
+    <div class="cover-sub">
+      銀行審査や新規面談で「ちゃんとした事務所だ」と感じてもらえる、見た目と言葉を整えます。<br>
+      WebサイトやLPから名刺・資料まで、デザイナー目線で伴走します。
+    </div>
+    <div class="divider"></div>
+  </div>
+  <div class="slide-footer">
+    <div class="nav-btn">‹ PREVIOUS</div>
+    <div class="dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+    <div class="nav-btn">NEXT ›</div>
+  </div>
+</div>
+
+<!-- ===== PAGE 02 ===== -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="logo"><div class="logo-icon">D</div>OFFICE <span>STARTUP</span></div>
+    <div class="header-right">
+      <div class="progress-bar-wrap"><div class="progress-bar" style="width:15%"></div></div>
+      <div class="page-num">PAGE 02 / 13</div>
+    </div>
+  </div>
+  <div class="page-title">「選ばれる理由」を、伝わる形にする</div>
+  <div class="two-col-wide" style="flex:1">
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div>
+        <div style="font-size:18px;font-weight:900;color:var(--navy);line-height:1.5;margin-bottom:10px;">独立初期の印象は、<br><span style="color:var(--blue);">その後の信頼構築</span>に影響します。</div>
+        <div style="font-size:13px;color:var(--gray);line-height:1.9;">独立直後は、銀行や提携先、顧客から「信頼できる先生だ」と感じてもらえる場面が特に重要になります。</div>
+      </div>
+      <div class="quote-block">
+        既製のテンプレートは手軽ですが、先生ご自身の専門性や強みが伝わりにくくなることがあります。Webサイトや名刺を丁寧に設計することで、初対面の方にも「この先生に頼みたい」という印象を届けやすくなります。
+      </div>
+    </div>
+    <div style="background:var(--gray-light);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:12px;">
+      <div style="font-size:13px;font-weight:700;color:var(--gray);text-align:center;margin-bottom:4px;">信頼の3つの構成要素</div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        存在感：Webサイトで「ちゃんとある事務所」を示す
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        専門性：強みや提供サービスを、見てわかる形で伝える
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        一貫性：名刺・Web・資料のトーンを揃え、信頼感を積み上げる
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="nav-btn">‹ PREVIOUS</div>
+    <div class="dots"><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+    <div class="nav-btn">NEXT ›</div>
+  </div>
+</div>
+
+<!-- ===== PAGE 03 ===== -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="logo"><div class="logo-icon">D</div>OFFICE <span>STARTUP</span></div>
+    <div class="header-right">
+      <div class="progress-bar-wrap"><div class="progress-bar" style="width:23%"></div></div>
+      <div class="page-num">PAGE 03 / 13</div>
+    </div>
+  </div>
+  <div class="page-title">金融機関の審査で、Webサイトが果たす役割</div>
+  <div class="two-col-wide" style="flex:1">
+    <div class="evidence-left">
+      <div style="font-size:14px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:8px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12l2 2 4-4"/></svg>
+        事業内容の公式な証明
+      </div>
+      <div class="evidence-body">法人口座の開設や融資審査の場面では、Webサイトが「事業の実態を確認できる資料」として参照されることがあります。登記情報だけでは伝わりにくい、事業内容や業務の流れを補足する役割を担います。</div>
+      <div class="source-box">
+        <div class="source-label">主な参照ソース：</div>
+        <ul>
+          <li>みずほ銀行：法人口座開設時の「事業内容が確認できる資料」としてのHP提示</li>
+          <li>GMOあおぞらネット銀行：口座開設審査におけるHPのURL入力（必須/推奨）</li>
+          <li>日本政策金融公庫：創業計画書の裏付けとしてのWebサイト情報活用</li>
+        </ul>
+      </div>
+    </div>
+    <div class="blue-quote">
+      <div class="bq-title">審査担当者の視点</div>
+      <p>「代表者名・所在地・業務内容がWebサイトにまとまっていると、事業の実態を社内で説明しやすくなります」<br><br><span style="font-size:11px;color:var(--gray);">※審査担当者の声をもとにした参考例です</span></p>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="nav-btn">‹ PREVIOUS</div>
+    <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+    <div class="nav-btn">NEXT ›</div>
+  </div>
+</div>
+
+<!-- ===== PAGE 04 ===== -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="logo"><div class="logo-icon">D</div>OFFICE <span>STARTUP</span></div>
+    <div class="header-right">
+      <div class="progress-bar-wrap"><div class="progress-bar" style="width:31%"></div></div>
+      <div class="page-num">PAGE 04 / 13</div>
+    </div>
+  </div>
+  <div class="page-title">問い合わせ前に、Webサイトで判断される</div>
+  <div class="two-col" style="flex:1">
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div>
+        <div class="stat-number">80.6%</div>
+        <div class="stat-label">経営者の約8割が、依頼前にWebサイトで実態を確認している</div>
+      </div>
+      <div class="info-box">
+        <div class="label">情報元：</div>
+        トライベック・ストラテジー株式会社「B2Bサイト調査」<br>
+        B2B取引の場面では、Webサイトは「まず確認される情報源」のひとつとされており、サイトの有無が検討の入り口になることがあります。<br>
+        <span style="font-size:11px;color:#94A3B8;">※士業・専門職向けのデータではありませんが、参考指標としてご参照ください</span>
+      </div>
+    </div>
+    <div class="chart-wrap">
+      <div class="chart-title">信頼の確認経路</div>
+      <div class="bar-row">
+        <div class="bar-label" style="font-size:10px;">Webサイトで実体を確認</div>
+        <div class="bar-track"><div class="bar-fill" style="width:81%;">80.6%</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label" style="font-size:10px;">紙の資料・紹介のみ</div>
+        <div class="bar-track"><div class="bar-fill gray" style="width:19%;">19.4%</div></div>
+      </div>
+      <div class="chart-note">※Webサイトがないと、検討の土俵にも上がれないケースがあります。</div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="nav-btn">‹ PREVIOUS</div>
+    <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+    <div class="nav-btn">NEXT ›</div>
+  </div>
+</div>
+
+<!-- ===== PAGE 05 Webサイト制作 ===== -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="logo"><div class="logo-icon">D</div>OFFICE <span>STARTUP</span></div>
+    <div class="header-right">
+      <div class="progress-bar-wrap"><div class="progress-bar" style="width:38%"></div></div>
+      <div class="page-num">PAGE 05 / 13</div>
+    </div>
+  </div>
+  <div class="page-title">Webサイト制作でお届けすること</div>
+  <div class="two-col" style="flex:1">
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div class="card">
+        <div class="card-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          「伝わる」情報の設計
+        </div>
+        <ul style="list-style:disc;padding-left:16px;display:flex;flex-direction:column;gap:6px;">
+          <li style="font-size:12px;color:var(--gray);">代表経歴や専門分野を、信頼の根拠として丁寧に整理</li>
+          <li style="font-size:12px;color:var(--gray);">所在地・事業概要を、必要な方がすぐ確認できる形で掲載</li>
+          <li style="font-size:12px;color:var(--gray);">ご自身の言葉で更新可能なシステム（CMS）導入</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+          スマートフォン・タブレット対応
+        </div>
+        <p style="font-size:12px;color:var(--gray);line-height:1.8;">スマートフォンでも見やすいレイアウトで制作します。Googleの評価基準に沿った設計を心がけています。</p>
+      </div>
+    </div>
+    <div class="dark-panel">
+      <div class="dark-panel-title">作って終わりにしない、長く使えるWebサイト</div>
+      <p>銀行審査だけでなく、将来の顧問先が先生を探したときに「この先生に相談したい」と思ってもらえる。そんなサイトを一緒に作ります。</p>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="nav-btn">‹ PREVIOUS</div>
+    <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+    <div class="nav-btn">NEXT ›</div>
+  </div>
+</div>
+
+<!-- ===== PAGE 06 グラフィック ===== -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="logo"><div class="logo-icon">D</div>OFFICE <span>STARTUP</span></div>
+    <div class="header-right">
+      <div class="progress-bar-wrap"><div class="progress-bar" style="width:46%"></div></div>
+      <div class="page-num">PAGE 06 / 13</div>
+    </div>
+  </div>
+  <div class="page-title">グラフィックデザインでお届けすること</div>
+  <div class="graphic-grid" style="flex:1">
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div style="font-size:13px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        デザインの提供範囲
+      </div>
+      <div class="graphic-mini-grid">
+        <div class="mini-card">
+          <h4>ロゴデザイン</h4>
+          <p>カラー・モノクロ・SNSアイコン用など、各用途に対応したデータをセットで納品します。</p>
+        </div>
+        <div class="mini-card">
+          <h4>名刺・封筒</h4>
+          <p>ネット印刷会社にそのまま入稿できる形式でデータを制作します。</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        印刷サポート
+      </div>
+      <p style="font-size:12px;color:var(--gray);line-height:1.8;">印刷費を抑えたい先生のために、ネット印刷会社（ラクスルなど）への入稿設定もサポートします。コストを抑えながら、品質にこだわった印刷物をお手元に。</p>
+      <div style="margin-top:12px;background:#EFF6FF;border-radius:6px;padding:10px 12px;font-size:11px;color:var(--gray);">
+        ※枚数や用紙の変更にも対応できるデータ形式でお渡しします。
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="nav-btn">‹ PREVIOUS</div>
+    <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+    <div class="nav-btn">NEXT ›</div>
+  </div>
+</div>
+
+<!-- ===== PAGE 07 名刺とWeb統一 ===== -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="logo"><div class="logo-icon">D</div>OFFICE <span>STARTUP</span></div>
+    <div class="header-right">
+      <div class="progress-bar-wrap"><div class="progress-bar" style="width:54%"></div></div>
+      <div class="page-num">PAGE 07 / 13</div>
+    </div>
+  </div>
+  <div class="page-title">名刺とWebのデザインを揃えると、何が変わるのか</div>
+  <div class="three-col" style="flex:1">
+    <div class="num-card">
+      <div class="num-badge">01</div>
+      <h3>記憶に残りやすくなる</h3>
+      <p>名刺とWebのデザインが一致していると、「同じ先生だ」と直感的に結びつきやすくなります。記憶に残りやすくなる、という効果があります。</p>
+    </div>
+    <div class="num-card">
+      <div class="num-badge">02</div>
+      <h3>専門性が伝わりやすくなる</h3>
+      <p>デザインが統一されていると、「細かいところまで丁寧な先生だ」という印象につながります。それが専門性への信頼感を自然に生みます。</p>
+    </div>
+    <div class="num-card">
+      <div class="num-badge">03</div>
+      <h3>安心感につながる</h3>
+      <p>名刺を受け取った方がWebを調べたとき、デザインが繋がっていると「ちゃんとしている」という安心感につながります。</p>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="nav-btn">‹ PREVIOUS</div>
+    <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+    <div class="nav-btn">NEXT ›</div>
+  </div>
+</div>
+
+<!-- ===== PAGE 08 ===== -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="logo"><div class="logo-icon">D</div>OFFICE <span>STARTUP</span></div>
+    <div class="header-right">
+      <div class="progress-bar-wrap"><div class="progress-bar" style="width:62%"></div></div>
+      <div class="page-num">PAGE 08 / 13</div>
+    </div>
+  </div>
+  <div class="page-title">自作・テンプレートと、何が違うのか</div>
+  <div class="comparison" style="flex:1;margin-top:8px;">
+    <div class="comp-col self">
+      <div class="comp-label">SELF-MADE</div>
+      <div class="comp-title">自作・テンプレート</div>
+      <div class="comp-item"><span class="icon-x">✕</span>他と似たデザインになりやすく、印象に残りにくい</div>
+      <div class="comp-item"><span class="icon-x">✕</span>専門領域や強みが伝わりにくいことがある</div>
+      <div class="comp-item"><span class="icon-x">✕</span>審査の場で「とりあえず作った」印象になる場合がある</div>
+      <div class="comp-item"><span class="icon-x">✕</span>修正や更新に時間がかかり、本業を圧迫しやすい</div>
+    </div>
+    <div class="comp-col pro">
+      <div class="comp-badge">PROFESSIONAL BRANDING</div>
+      <div class="comp-label" style="margin-top:8px;">STRATEGIC DESIGN</div>
+      <div class="comp-title">プロによるブランディング</div>
+      <div class="comp-item"><span class="icon-o">○</span>先生の専門性・強みを軸にした完全オーダーメイド</div>
+      <div class="comp-item"><span class="icon-o">○</span>審査や面談で「信頼できる事務所」と感じてもらえる情報設計</div>
+      <div class="comp-item"><span class="icon-o">○</span>制作はすべてお任せいただけるので、先生は開業準備に集中できる</div>
+      <div class="comp-item"><span class="icon-o">○</span>納品後も使い続けられる、資産として残るデータでお渡し</div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="nav-btn">‹ PREVIOUS</div>
+    <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+    <div class="nav-btn">NEXT ›</div>
+  </div>
+</div>
+
+<!-- ===== PAGE 09 ===== -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="logo"><div class="logo-icon">D</div>OFFICE <span>STARTUP</span></div>
+    <div class="header-right">
+      <div class="progress-bar-wrap"><div class="progress-bar" style="width:69%"></div></div>
+      <div class="page-num">PAGE 09 / 13</div>
+    </div>
+  </div>
+  <div class="page-title">開業のフェーズに合わせて選べる3つのプラン</div>
+  <div class="pricing-grid" style="flex:1">
+    <div class="price-card">
+      <div class="price-plan-label">STARTUP BASIC</div>
+      <div class="price-plan-name">まず「実体」を整えるプラン</div>
+      <div class="price-amount">330,000<span>円（税込）</span></div>
+      <ul class="price-features">
+        <li>Webサイト（LP・LP形式）</li>
+        <li>事務所ロゴ制作（1案）</li>
+        <li>名刺デザイン（データ納品）</li>
+        <li>ドメイン・サーバー取得設定支援</li>
+      </ul>
+      <div class="price-note">まず開業を迎えたい方に</div>
+    </div>
+    <div class="price-card featured">
+      <div class="price-tag">STANDARD</div>
+      <div class="price-plan-label">RELIABLE GROWTH</div>
+      <div class="price-plan-name">信頼の土台をまとめて整えるプラン</div>
+      <div class="price-amount">660,000<span>円（税込）</span></div>
+      <ul class="price-features">
+        <li>Webサイト（5P構成・標準）</li>
+        <li>ロゴ・カラーパレット設計</li>
+        <li>名刺・封筒・挨拶状デザイン</li>
+        <li>印刷会社への発注・入稿完全代行</li>
+      </ul>
+      <div class="price-note">長期のブランディングまで見据える方に</div>
+    </div>
+    <div class="price-card dark">
+      <div class="price-plan-label">FULL PROFESSIONAL</div>
+      <div class="price-plan-name">独自ブランドを本格的に築くプラン</div>
+      <div class="price-amount">1,100,000<span>円（税込）</span></div>
+      <ul class="price-features">
+        <li>Webサイト（10P・多機能）</li>
+        <li>フォトグラファーによる取材・撮影</li>
+        <li>写真撮影（プロフィール/事務所）</li>
+        <li>広告ツール・看板等のフルサポート</li>
+      </ul>
+      <div class="price-note">本格的な立ち上げを目指す方に</div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="nav-btn">‹ PREVIOUS</div>
+    <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+    <div class="nav-btn">NEXT ›</div>
+  </div>
+</div>
+
+<!-- ===== PAGE 10 ロードマップ ===== -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="logo"><div class="logo-icon">D</div>OFFICE <span>STARTUP</span></div>
+    <div class="header-right">
+      <div class="progress-bar-wrap"><div class="progress-bar" style="width:77%"></div></div>
+      <div class="page-num">PAGE 10 / 13</div>
+    </div>
+  </div>
+  <div class="page-title">開業準備と並走する制作ロードマップ</div>
+  <div class="roadmap" style="flex:1;align-content:center;">
+    <div class="roadmap-step">
+      <div class="step-num">01</div>
+      <div class="step-title">ヒアリング</div>
+      <div class="step-desc">事務所のコンセプトや先生が大切にしていることを、丁寧にお聞きします。</div>
+    </div>
+    <div class="roadmap-step">
+      <div class="step-num">02</div>
+      <div class="step-title">デザイン・構成</div>
+      <div class="step-desc">ロゴとWebの方向性を揃え、一貫したデザインの基盤を作ります。</div>
+    </div>
+    <div class="roadmap-step">
+      <div class="step-num">03</div>
+      <div class="step-title">制作・確認</div>
+      <div class="step-desc">Webとグラフィックをできるだけ並行して進め、進捗はチャットで随時共有します。</div>
+    </div>
+    <div class="roadmap-step">
+      <div class="step-num">04</div>
+      <div class="step-title">公開・納品</div>
+      <div class="step-desc">Web公開・データ納品まで対応します。開業日から使える状態でお渡しします。</div>
+    </div>
+  </div>
+  <div class="banner">開業予定日から逆算して、スケジュールを一緒に組みます。</div>
+  <div class="slide-footer">
+    <div class="nav-btn">‹ PREVIOUS</div>
+    <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+    <div class="nav-btn">NEXT ›</div>
+  </div>
+</div>
+
+<!-- ===== PAGE 11 開業投資 ===== -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="logo"><div class="logo-icon">D</div>OFFICE <span>STARTUP</span></div>
+    <div class="header-right">
+      <div class="progress-bar-wrap"><div class="progress-bar" style="width:85%"></div></div>
+      <div class="page-num">PAGE 11 / 13</div>
+    </div>
+  </div>
+  <div class="page-title">開業投資を「信頼資産」へ</div>
+  <div class="roi-grid" style="flex:1">
+    <div class="roi-left">
+      <div class="roi-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3>「検討段階での離脱」を減らす</h3>
+      <p>Webサイトがないと、先生が知らないまま「検討外」になっているケースがあります。きちんと整えることで、そのリスクをできる限り減らすことができます。</p>
+    </div>
+    <div class="roi-right">
+      <div class="roi-item">
+        <div class="roi-item-icon">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <h4>不変のブランド資産</h4>
+          <p>ロゴやWebサイトは、一度作れば長く使い続けられます。開業時の投資が、時間をかけて信頼として積み上がっていきます。</p>
+        </div>
+      </div>
+      <div class="roi-item">
+        <div class="roi-item-icon">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div>
+          <h4>成約プロセスの効率化</h4>
+          <p>Webで先生のことを事前に知ってもらえると、初回の面談が「どんな人だろう」ではなく「具体的な相談」から始まりやすくなります。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="nav-btn">‹ PREVIOUS</div>
+    <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
+    <div class="nav-btn">NEXT ›</div>
+  </div>
+</div>
+
+<!-- ===== PAGE 12 FAQ ===== -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="logo"><div class="logo-icon">D</div>OFFICE <span>STARTUP</span></div>
+    <div class="header-right">
+      <div class="progress-bar-wrap"><div class="progress-bar" style="width:92%"></div></div>
+      <div class="page-num">PAGE 12 / 13</div>
+    </div>
+  </div>
+  <div class="page-title">よくあるご質問</div>
+  <div class="faq-grid" style="flex:1">
+    <div class="faq-item">
+      <div class="faq-q"><div class="faq-q-icon">Q</div>名刺の印刷費用や枚数はどうなりますか？</div>
+      <div class="faq-a">デザインデータの納品が基本です。印刷費は枚数・用紙によって異なり、実費でのご負担となります。ネット印刷会社への入稿設定はプランに応じてサポートします。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><div class="faq-q-icon">Q</div>Webサイトは自分で修正できますか？</div>
+      <div class="faq-a">はい、更新しやすいCMS（管理システム）を導入します。専門知識がなくても、スマホやPCから更新できます。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><div class="faq-q-icon">Q</div>事務所の所在地が決まる前でも依頼可能ですか？</div>
+      <div class="faq-a">はい、大丈夫です。所在地が決まる前にロゴやデザインの方向性を進めておくことで、確定後すぐに公開できる状態を整えられます。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><div class="faq-q-icon">Q</div>制作の途中で内容の変更は可能ですか？</div>
+      <div class="faq-a">はい、対応できます。開業前は状況が変わることも多いので、フェーズに合わせて柔軟に調整します。</div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="nav-btn">‹ PREVIOUS</div>
+    <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div></div>
+    <div class="nav-btn">NEXT ›</div>
+  </div>
+</div>
+
+<!-- ===== PAGE 13 CLOSING ===== -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="logo"><div class="logo-icon">D</div>OFFICE <span>STARTUP</span></div>
+    <div class="header-right">
+      <div class="progress-bar-wrap"><div class="progress-bar" style="width:100%"></div></div>
+      <div class="page-num">PAGE 13 / 13</div>
+    </div>
+  </div>
+  <div class="closing-body">
+    <div class="closing-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+    </div>
+    <div class="closing-title">先生の「独立」という決断を、<br><span>伝わる形</span>に。</div>
+    <div class="closing-sub">
+      ロゴ、名刺、Webサイト。開業に必要なビジュアルを、プロの視点で丁寧に整えます。<br>
+      一緒に、長く使える土台を作りましょう。
+    </div>
+    <div class="cta-wrap">
+      <button class="btn-primary">まずは「開業無料相談」から →</button>
+      <button class="btn-secondary">詳細を確認する</button>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="nav-btn">‹ PREVIOUS</div>
+    <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div></div>
+    <div class="nav-btn">RESTART ›</div>
+  </div>
+</div>
+
+</body>
+</html>
